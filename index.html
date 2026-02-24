@@ -24,13 +24,13 @@
     <script>
         // map config
         const config = {
-            minZoom : 1,
+            minZoom : 10,
             maxZoom: 18,
             fullscreenControl: true,
         };
 
         // create map variable
-        var map = L.map('map', config).setView(new L.LatLng(40.758700379161006, -73.95652770996094), 11);
+        var map = L.map('map', config).setView(new L.LatLng(40.758700379161006, -73.95652770996094), 10);
         
         // access map tiles ; the images which comprise the map
         L.tileLayer('https://api.maptiler.com/maps/toner-v2/{z}/{x}/{y}.png?key=I9qRimdCWrc5RcbYL2gx', {
@@ -44,5 +44,8 @@
         
         // fullscreen button
         map.addControl(new L.Control.FullScreen());
+
+        // set bounds;
+        map.setMaxBounds(map.getBounds());
     </script>
 </body>
